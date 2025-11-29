@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodExpress - Online Food Ordering</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">FoodExpress</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="restaurants.html">Restaurants</a></li>
+                    <li><a href="cart.html" class="cart-icon">Cart <span class="cart-count">0</span></a></li>
+                    <li id="auth-links">
+                        <!-- Auth links will be dynamically inserted here -->
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Add user info below navbar -->
+        <div class="container">
+            <div class="user-info">
+                FoodExpress Platform
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Order Food Online</h1>
+            <p>Discover delicious meals from the best local restaurants delivered to your doorstep.</p>
+            <a href="restaurants.html" class="btn">Order Now</a>
+            <a href="restaurants.html" class="btn btn-secondary">View Restaurants</a>
+        </div>
+    </section>
+
+    <!-- Featured Restaurants -->
+    <section class="featured-restaurants">
+        <div class="container">
+            <h2 class="section-title">Popular Restaurants</h2>
+            <div class="restaurant-grid" id="featured-restaurants">
+                <!-- Restaurants will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Browse</h3>
+                    <p>Explore restaurants and menus in your area</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Select</h3>
+                    <p>Choose your favorite dishes and customize them</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Order</h3>
+                    <p>Place your order and make secure payment</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Enjoy</h3>
+                    <p>Get your food delivered fast and fresh</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FoodExpress</h3>
+                    <p>Your favorite food delivery service. Fast, reliable, and delicious.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="restaurants.html">Restaurants</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Delivery Policy</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p>&copy; 2025 FoodExpress. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Dynamically update auth links and load featured restaurants
+        function loadFeaturedRestaurants() {
+            const featuredRestaurants = document.getElementById('featured-restaurants');
+            if (featuredRestaurants && typeof restaurants !== 'undefined') {
+                // Clear existing content
+                featuredRestaurants.innerHTML = '';
+                
+                // Use the first 4 restaurants from our centralized data
+                const featuredRestaurantsData = restaurants.slice(0, 4);
+                
+                featuredRestaurantsData.forEach(restaurant => {
+                    const restaurantCard = document.createElement('div');
+                    restaurantCard.className = 'restaurant-card';
+                    restaurantCard.innerHTML = `
+                        <img src="${restaurant.image}" alt="${restaurant.name}" class="restaurant-image">
+                        <div class="restaurant-info">
+                            <h3>${restaurant.name}</h3>
+                            <p class="restaurant-cuisine">${restaurant.cuisine}</p>
+                            <p class="restaurant-rating">★ ${restaurant.rating} (${restaurant.deliveryTime} mins)</p>
+                            <button class="btn" onclick="viewRestaurant(${restaurant.id})">View Menu</button>
+                        </div>
+                    `;
+                    featuredRestaurants.appendChild(restaurantCard);
+                });
+            }
+        }
+        
+        // Update auth links
+        function updateAuthLinks() {
+            const authLinks = document.getElementById('auth-links');
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (authLinks) {
+                if (currentUser) {
+                    authLinks.innerHTML = `
+                        <li><a href="profile.html">Welcome, ${currentUser.name}</a></li>
+                        <li><a href="#" id="logout-btn">Logout</a></li>
+                    `;
+                    
+                    // Add event listener for logout with better error handling
+                    setTimeout(() => {
+                        const logoutBtn = document.getElementById('logout-btn');
+                        if (logoutBtn) {
+                            // Remove any existing event listeners to prevent duplicates
+                            logoutBtn.removeEventListener('click', handleLogout);
+                            logoutBtn.addEventListener('click', handleLogout);
+                        }
+                    }, 100);
+                } else {
+                    authLinks.innerHTML = `
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Register</a></li>
+                    `;
+                }
+            }
+        }
+        
+        // Handle logout click
+        function handleLogout(e) {
+            e.preventDefault();
+            if (typeof logoutUser !== 'undefined') {
+                logoutUser();
+            }
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            updateAuthLinks();
+            loadFeaturedRestaurants();
+        });
+    </script>
+</body>
+</html>

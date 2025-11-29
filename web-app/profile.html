@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - FoodExpress</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">FoodExpress</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="restaurants.html">Restaurants</a></li>
+                    <li><a href="cart.html" class="cart-icon">Cart <span class="cart-count">0</span></a></li>
+                    <li id="auth-links">
+                        <!-- Auth links will be dynamically inserted here -->
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Add user info below navbar -->
+        <div class="container">
+            <div class="user-info">
+                FoodExpress Platform
+            </div>
+        </div>
+    </header>
+
+    <!-- Profile Section -->
+    <section class="profile">
+        <div class="container">
+            <h2 class="section-title">User Profile</h2>
+            
+            <div class="profile-container">
+                <div class="profile-sidebar">
+                    <div class="profile-info" id="profile-info">
+                        <!-- Profile info will be loaded dynamically -->
+                    </div>
+                    
+                    <button id="logout-btn" class="btn btn-secondary" style="width: 100%;">Logout</button>
+                </div>
+                
+                <div class="profile-content">
+                    <div class="profile-section">
+                        <h3>Order History</h3>
+                        <div id="order-history">
+                            <!-- Order history will be loaded dynamically -->
+                            <p>No order history available.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-section">
+                        <h3>Delivery Addresses</h3>
+                        <div id="delivery-addresses">
+                            <!-- Delivery addresses will be loaded dynamically -->
+                            <p>No saved addresses.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FoodExpress</h3>
+                    <p>Your favorite food delivery service. Fast, reliable, and delicious.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="restaurants.html">Restaurants</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Delivery Policy</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p>&copy; 2025 FoodExpress. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

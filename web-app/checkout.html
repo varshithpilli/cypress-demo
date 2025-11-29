@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - FoodExpress</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">FoodExpress</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="restaurants.html">Restaurants</a></li>
+                    <li><a href="cart.html" class="cart-icon">Cart <span class="cart-count">0</span></a></li>
+                    <li id="auth-links">
+                        <!-- Auth links will be dynamically inserted here -->
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Add user info below navbar -->
+        <div class="container">
+            <div class="user-info">
+                FoodExpress Platform
+            </div>
+        </div>
+    </header>
+
+    <!-- Checkout Section -->
+    <section class="checkout">
+        <div class="container">
+            <h2 class="section-title">Checkout</h2>
+            
+            <div class="checkout-container">
+                <div class="checkout-form">
+                    <h3>Delivery Information</h3>
+                    <form id="delivery-form">
+                        <div class="form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" id="fullname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Delivery Address</label>
+                            <textarea id="address" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="delivery-instructions">Delivery Instructions (Optional)</label>
+                            <textarea id="delivery-instructions" rows="2"></textarea>
+                        </div>
+                    </form>
+                    
+                    <h3>Payment Method</h3>
+                    <div class="payment-methods">
+                        <div class="payment-option">
+                            <input type="radio" id="cash" name="payment" value="cash" checked>
+                            <label for="cash">Cash on Delivery</label>
+                        </div>
+                        <div class="payment-option">
+                            <input type="radio" id="card" name="payment" value="card">
+                            <label for="card">Credit/Debit Card</label>
+                        </div>
+                        <div class="payment-option">
+                            <input type="radio" id="upi" name="payment" value="upi">
+                            <label for="upi">UPI</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div id="order-items">
+                        <!-- Order items will be loaded dynamically -->
+                    </div>
+                    
+                    <div class="order-totals">
+                        <div class="total-row">
+                            <span>Subtotal:</span>
+                            <span>₹<span id="order-subtotal">0.00</span></span>
+                        </div>
+                        <div class="total-row">
+                            <span>Delivery Fee:</span>
+                            <span>₹<span id="order-delivery-fee">0.00</span></span>
+                        </div>
+                        <div class="total-row">
+                            <span>Tax:</span>
+                            <span>₹<span id="order-tax">0.00</span></span>
+                        </div>
+                        <div class="total-row grand-total">
+                            <span>Total:</span>
+                            <span>₹<span id="order-total">0.00</span></span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn place-order-btn" onclick="placeOrder()">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FoodExpress</h3>
+                    <p>Your favorite food delivery service. Fast, reliable, and delicious.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="restaurants.html">Restaurants</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Delivery Policy</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p>&copy; 2025 FoodExpress. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

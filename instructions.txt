@@ -1,0 +1,42 @@
+# install via npm
+npm install cypress --save-dev
+npm install -g http-server
+
+# serve files
+npx http-server ./web-app -p 8000
+
+----
+cd tests
+----
+
+# run via GUI
+npx cypress open
+
+# run via CLI
+npx cypress run
+
+# run in Chrome via CLI
+npx cypress run --browser chrome
+
+# run a specific spec file
+npx cypress run --spec cypress/e2e/authentication.cy.js
+
+| Command             | Description                    |
+| ------------------- | ------------------------------ |
+| `cy.visit(url)`     | Visit a web page               |
+| `cy.get(selector)`  | Get element(s) by CSS selector |
+| `cy.contains(text)` | Get element containing text    |
+| `cy.click()`        | Click an element               |
+| `cy.type(value)`    | Type into input fields         |
+| `cy.select(value)`  | Select dropdown options        |
+| `cy.url()`          | Get the current URL            |
+| `cy.title()`        | Get page title                 |
+| `cy.wait(time)`     | Wait for a given time (ms)     |
+| `cy.request(url)`   | Make an HTTP request           |
+| `cy.intercept()`    | Intercept/Mock API calls       |
+
+# browsers available
+- chrome
+- firefox
+- electron (default)
+- edge

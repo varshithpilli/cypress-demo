@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed - FoodExpress</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">FoodExpress</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="restaurants.html">Restaurants</a></li>
+                    <li><a href="cart.html" class="cart-icon">Cart <span class="cart-count">0</span></a></li>
+                    <li id="auth-links">
+                        <!-- Auth links will be dynamically inserted here -->
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Add user info below navbar -->
+        <div class="container">
+            <div class="user-info">
+                FoodExpress Platform
+            </div>
+        </div>
+    </header>
+
+    <!-- Order Confirmation Section -->
+    <section class="order-confirmation">
+        <div class="container">
+            <div class="confirmation-container">
+                <div class="confirmation-icon">
+                    <span class="checkmark">✓</span>
+                </div>
+                <h2>Order Confirmed!</h2>
+                <p>Thank you for your order. Your food is being prepared and will be delivered soon.</p>
+                
+                <div class="order-details">
+                    <h3>Order Details</h3>
+                    <div class="order-info">
+                        <p><strong>Order ID:</strong> <span id="order-id">#FX2025001</span></p>
+                        <p><strong>Estimated Delivery:</strong> <span id="delivery-time">30-45 minutes</span></p>
+                    </div>
+                    
+                    <div id="confirmed-order-items">
+                        <!-- Order items will be loaded dynamically -->
+                    </div>
+                    
+                    <div class="order-totals">
+                        <div class="total-row">
+                            <span>Subtotal:</span>
+                            <span>₹<span id="confirmed-order-subtotal">0.00</span></span>
+                        </div>
+                        <div class="total-row">
+                            <span>Delivery Fee:</span>
+                            <span>₹<span id="confirmed-order-delivery-fee">0.00</span></span>
+                        </div>
+                        <div class="total-row">
+                            <span>Tax:</span>
+                            <span>₹<span id="confirmed-order-tax">0.00</span></span>
+                        </div>
+                        <div class="total-row grand-total">
+                            <span>Total:</span>
+                            <span>₹<span id="confirmed-order-total">0.00</span></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="confirmation-actions">
+                    <a href="index.html" class="btn">Continue Shopping</a>
+                    <a href="profile.html" class="btn btn-secondary">View Order History</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>FoodExpress</h3>
+                    <p>Your favorite food delivery service. Fast, reliable, and delicious.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="restaurants.html">Restaurants</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Delivery Policy</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p>&copy; 2025 FoodExpress. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
